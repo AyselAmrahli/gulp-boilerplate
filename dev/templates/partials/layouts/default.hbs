@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="tags for website">
+<meta name="description" content="description">
+<meta name="author" content="Aysel Amrahli">
+
+<title> Project name - {{ title }} </title>
+
+<!-- injector:css -->
+<link rel="stylesheet" href="assets/css/styles.css">
+<!-- endinjector -->
+
+</head>
+<body>
+
+{{> includes/header }}
+
+ {{#> body}}
+
+    {{!-- Body content --}}
+
+ {{/body}}
+
+{{> includes/footer }}
+
+
+<!-- injector:js -->
+<script src="assets/js/app.min.js"></script>
+<!-- endinjector -->
+
+{{#> custom-scripts}}
+    {{!-- Custom scripts for each pages. --}}
+{{/custom-scripts}}
+</body>
+</html>

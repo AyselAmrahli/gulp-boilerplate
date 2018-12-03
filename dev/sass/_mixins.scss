@@ -1,0 +1,97 @@
+// ****mixins for our project****//
+
+
+
+
+///* Transform
+//-------------------------------------*/
+@mixin transform($transform...) {
+    -webkit-transform: $transform;
+    -ms-transform: $transform; // IE9 only
+    -o-transform: $transform;
+    transform: $transform;
+  }
+
+
+@mixin backface-visibility($visibility...) {
+    -webkit-backface-visibility: $visibility;
+    -moz-backface-visibility:    $visibility;
+    -ms-backface-visibility:     $visibility;
+    backface-visibility: $visibility;
+  }
+
+
+  ///* Responsive Breakpoints
+//-------------------------------------*/
+@mixin breakpoint($min: 0, $max: 0) {
+    $type: type-of($min);
+  
+    @if $type == string {
+      @if $min == visible-xs { //  SCREEN < 767px
+        @media (max-width: $screen-xs-max) { @content; }
+      }
+      @else if $min == visible-sm { // 768px < SCREEN > 991px
+        @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) { @content; }
+      }
+      @else if $min == visible-md { // 992px < SCREEN > 1199px
+        @media (min-width: $screen-md-min) and (max-width: $screen-md-max)  { @content; }
+      }
+      @else if $min == visible-lg { //  SCREEN > 1200px
+        @media (min-width: $screen-lg-min)  { @content; }
+      }
+        // additional rules
+      @else if $min == visible-from-xs { //  SCREEN > 767px
+        @media (min-width: $screen-xs-max)  { @content; }
+      }
+      @else if $min == visible-from-sm { //  SCREEN > 768px
+        @media (min-width: $screen-sm-min)  { @content; }
+      }
+      @else if $min == visible-from-md { //  SCREEN > 991px
+        @media (min-width: $screen-md-min)  { @content; }
+      }
+      @else if $min == visible-till-md { //  SCREEN < 991px
+        @media (max-width: $screen-md-min)  { @content; }
+      }
+    }
+  
+      // if number
+    @else if $type == number {
+      $query: "all" !default;
+      @if $min != 0 and $max != 0 {
+        $query: "(min-width: #{$min}) and (max-width: #{$max})";
+      }
+      @else if $min != 0 and $max == 0 {
+        $query: "(min-width: #{$min})";
+      }
+      @else if $min == 0 and $max != 0 {
+        $query: "(max-width: #{$max})";
+      }
+      @media #{$query} {
+        @content;
+      }
+    }
+  
+  }
+
+
+  /*Vertical align center*/
+ @mixin vertical-center(){
+    @include abs-pos(50%,auto,auto,auto);
+    @include transform(translateY(-50%));
+  }
+  
+  /*Horizontal align center*/
+ @mixin horizontal-center(){
+    @include abs-pos(auto,auto,auto, 50%);
+    @include transform(translateX(-50%));
+  }
+  
+
+
+  
+///* Style releted referrer points
+//-------------------------------------*/
+%reset {
+    margin: 0;
+    padding: 0;
+  }

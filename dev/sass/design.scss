@@ -1,0 +1,27 @@
+
+// ******************************//
+// **********imports*************//
+@import "variables";
+@import "fonts";
+
+//* Font families //-------------------------------------*/
+// @each $slug, $fonts in
+//        (torin-thin, torin_t),
+//        (torin-bold, torin_b),
+//        (torin-light, torin_l),
+//        (torin-regular, torin_r),
+//        (torin-sbold, torin_semibold)
+// {
+//  .f-#{$slug}
+//  {
+//    font-family: "#{$fonts}", "Helvetica Neue",Helvetica,Arial,sans-serif;
+//  }
+// }
+
+@import "mixins";
+@import "project-ui";
+
+
+@import "_base/header";
+@import "_base/footer";
+@import "styles";

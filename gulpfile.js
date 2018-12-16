@@ -14,11 +14,11 @@ sass.compiler = require('node-sass');
 
 // *************task for sass to css*****************//
 gulp.task('css', function () {
-  return gulp.src('dev/sass/styles.scss')
+  return gulp.src('dev/sass/design.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.init())
     .pipe(cleanCSS()) 
-    // .pipe(rename('styles.min.css'))
+    .pipe(rename('design.min.css'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('public/assets/css'), { sourcemaps: true });
 });

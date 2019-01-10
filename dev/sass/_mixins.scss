@@ -20,6 +20,12 @@
     backface-visibility: $visibility;
   }
 
+  @mixin appearance(){
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
 
   ///* Responsive Breakpoints
 //-------------------------------------*/
@@ -86,7 +92,13 @@
     @include transform(translateX(-50%));
   }
   
-
+  /*transition*/
+  @mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
 
   
 ///* Style releted referrer points

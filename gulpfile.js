@@ -24,9 +24,16 @@ gulp.task('css', function () {
 });
 
 
+gulp.task('libs', function() {
+  return gulp.src(['dev/js/vendors/smoothscroll.js', 'dev/js/vendors/wow.js'])
+    .pipe(concat('libs.js'))
+    .pipe(rename('libs.min.js'))
+    .pipe(gulp.dest('public/assets/js/libs'));
+});
+
 // ************** task for  js minify and concat*******//
 gulp.task('scripts', function() {
-    return gulp.src('dev/js/**/*.js')
+    return gulp.src('dev/js/*.js')
     .pipe(concat('scripts.js'))
     .pipe(rename('app.min.js'))
     .pipe(uglify())
@@ -50,9 +57,9 @@ gulp.task('html', function () {
 
 
 // ****************task for watch******************//
-gulp.task('watch', ['css','scripts', 'html'], function (){
+gulp.task('watch', ['css','libs','scripts', 'html'], function (){
   gulp.watch('dev/sass/**/**.scss', ['css']);
-  gulp.watch('dev/js/**/**.js', ['scripts']);
+  gulp.watch('dev/js/**/**.js', ['scripts','libs']);
   gulp.watch('dev/templates/**/**.hbs', ['html']);
 });
 

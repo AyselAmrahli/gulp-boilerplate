@@ -25,7 +25,7 @@ gulp.task('css', function () {
 
 
 gulp.task('libs', function() {
-  return gulp.src(['dev/js/vendors/smoothscroll.js', 'dev/js/vendors/wow.js'])
+  return gulp.src(['dev/js/vendors/example.js'])
     .pipe(concat('libs.js'))
     .pipe(rename('libs.min.js'))
     .pipe(gulp.dest('public/assets/js/libs'));
